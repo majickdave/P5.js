@@ -35,7 +35,7 @@ function setup() {
 }
 
 function draw() {
-  // background(0);
+  background(244, 66, 238, 75);
   // fill(100, 255, 30);
   
   
