@@ -18,7 +18,7 @@ var images = [];
 function setup() {
   createCanvas(1200,800);
 
-  img = loadImage("assets/images/48x48/2154.png")
+  img = loadImage("assets/images/48x48/1690.png")
 
   // particle setup
   for(var i=0; i<count; i++){
