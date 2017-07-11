@@ -42,7 +42,7 @@ function draw() {
   for(var i=0; i<count; i++){
   	// kiwi = new image(img, width/2, height/2);
     // ellipse(pos[i].x, pos[i].y, radii[i]*2, radii[i]*2);
-    image(img, pos[i].x, pos[i].y, radii[i]*8, radii[i]*8);
+    image(img, pos[i].x, pos[i].y, radii[i]*4, radii[i]*4);
       pos[i].x += spd[i].x;
       spd[i].y += gravity[i];
       pos[i].y += spd[i].y;
