@@ -23,13 +23,14 @@ function setup() {
   // number = Math.floor(randomInt(1,2176));
 
   // img = loadImage("assets/images/48x48/".concat(number,".png"));
-
+  pos = [];
+  spd = [];
   number = Math.floor(randomInt(1,2176));
   img = loadImage("assets/images/48x48/".concat(number,".png"));
 
   // particle setup
   for(var i=0; i<count; i++){
-    pos.push(new p5.Vector(width/2, 0));
+    pos.push(new p5.Vector(mouseX, mouseY));
     spd.push(new p5.Vector(-2 + Math.random()*4, Math.random()*2));
     radii.push(random(5, 10));
     gravity.push(random(.01, .06));
@@ -45,7 +46,6 @@ function draw() {
   background(255);
   // fill(100, 255, 30);
   
-
   for(var i=0; i<count; i++){
   	// kiwi = new image(img, width/2, height/2);
     // ellipse(pos[i].x, pos[i].y, radii[i]*2, radii[i]*2);
@@ -82,6 +82,8 @@ function randomInt(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function mouseClicked() {
+function touchStarted() {
   setup();
+
 }
+
