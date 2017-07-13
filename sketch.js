@@ -12,13 +12,15 @@ var gravity = [];
 var friction, damping;
 
 var img;
+var kiwi;
 var images = []; 
 
 
 function setup() {
   createCanvas(1200,800);
 
-  // img = loadImage("assets/images/48x48/1690.png")
+  img = loadImage("assets/images/48x48/1690.png");
+  kiwi = loadImage("assets/images/48x48/2154.png");
 
   // particle setup
   for(var i=0; i<count; i++){
@@ -38,10 +40,10 @@ function draw() {
   background(255, 75);
   // fill(100, 255, 30);
   number = Math.random(0,2175);
-  img = loadImage("assets/images/48x48/"+number+".png")
   
+  kiwi = image(kiwi, width/2, height/2);
   for(var i=0; i<count; i++){
-  	// kiwi = new image(img, width/2, height/2);
+  	
     // ellipse(pos[i].x, pos[i].y, radii[i]*2, radii[i]*2);
     image(img, pos[i].x, pos[i].y, radii[i]*4, radii[i]*4);
       pos[i].x += spd[i].x;
