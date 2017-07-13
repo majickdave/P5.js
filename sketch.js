@@ -18,7 +18,7 @@ var images = [];
 function setup() {
   createCanvas(1200,800);
 
-  img = loadImage("assets/images/48x48/1690.png")
+  // img = loadImage("assets/images/48x48/1690.png")
 
   // particle setup
   for(var i=0; i<count; i++){
@@ -35,9 +35,10 @@ function setup() {
 }
 
 function draw() {
-  background(244, 66, 238, 75);
+  background(255, 75);
   // fill(100, 255, 30);
-  
+  number = Math.random(0,2175);
+  img = loadImage("assets/images/48x48/"+number+".png")
   
   for(var i=0; i<count; i++){
   	// kiwi = new image(img, width/2, height/2);
