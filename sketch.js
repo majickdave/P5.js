@@ -50,7 +50,7 @@ function draw() {
   	// kiwi = new image(img, width/2, height/2);
     // ellipse(pos[i].x, pos[i].y, radii[i]*2, radii[i]*2);
     
-    image(img, pos[i].x, pos[i].y, radii[i]*2, radii[i]*2);
+    image(img, pos[i].x, pos[i].y, radii[i]*6, radii[i]*6);
       pos[i].x += spd[i].x;
       spd[i].y += gravity[i];
       pos[i].y += spd[i].y;
