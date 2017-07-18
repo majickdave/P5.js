@@ -21,7 +21,7 @@ var emojis = [];
 
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(1200, 800);
 
 
   // number = Math.floor(randomInt(1,2176));
