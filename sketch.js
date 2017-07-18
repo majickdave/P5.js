@@ -5,18 +5,19 @@
 // var x, y, spdX, spdY;
 
 var count = 200;
-var pos = [];
-var spd = [];
+var pos;
+var spd;
 var radii = [];
 var gravity = [];
 var friction, damping;
 
 var number;
 var img;
-var images = []; 
 
 var scrollingY=0;
 var scrollingX=0;
+
+var emojis = [];
 
 
 function setup() {
@@ -26,20 +27,16 @@ function setup() {
   // number = Math.floor(randomInt(1,2176));
 
   // img = loadImage("assets/images/48x48/".concat(number,".png"));
-  pos = [];
-  spd = [];
-  number = Math.floor(randomInt(1,2176));
-  img = loadImage("assets/images/48x48/".concat(number,".png"));
+  pos = [width/2, 100];
+  spd = [0,-3];
+  // number = Math.floor(randomInt(1,2176));
+  // img = loadImage("assets/images/48x48/".concat(number,".png"));
+  emojis = loadEmojis();
 
   // particle setup
-  for(var i=0; i<count; i++){
-    pos.push(new p5.Vector(mouseX, mouseY));
-    spd.push(new p5.Vector(-2 + Math.random()*4, Math.random()*2));
-    radii.push(random(5, 10));
-    gravity.push(random(.01, .06));
-    friction = .811;
-    damping = .923;
-  }
+  // for(var i=0; i<count; i++){
+    
+  // }
 
 }
 
@@ -50,11 +47,13 @@ function draw() {
   noFill();
   scrollingY += 1;
 
+  
+
   for(var i=0; i<count; i++){
     // kiwi = new image(img, width/2, height/2);
     // ellipse(pos[i].x, pos[i].y, radii[i]*2, radii[i]*2);
     
-    image(img, pos[i].x, pos[i].y, radii[i]*6, radii[i]*6);
+    image(emojis[i], pos[i].x, pos[i].y, radii[i]*6, radii[i]*6);
       pos[i].x += spd[i].x;
       spd[i].y += gravity[i];
       pos[i].y += spd[i].y;
@@ -69,7 +68,7 @@ function draw() {
 
   textSize(64);
   fill(255);
-  text("Greetings Travelers", 100, scrollingY);
+  text("MusicMind", 100, scrollingY);
 
 
 }
@@ -96,5 +95,22 @@ function randomInt(min, max) {
 function touchStarted() {
   setup();
 
+}
+
+function loadEmojis() {
+    var images = []; 
+    for(var i=0; i<count; i++){
+      number = Math.floor(randomInt(505,2174));
+      img = loadImage("assets/images/48x48/".concat(number,".png"));
+      images.push(img);
+
+      pos.push(new p5.Vector(mouseX, mouseY));
+      spd.push(new p5.Vector(-2 + Math.random()*4, Math.random()*2));
+      radii.push(random(5, 10));
+      gravity.push(random(.01, .06));
+      friction = .811;
+      damping = .923;   
+    }
+  return images
 }
 
