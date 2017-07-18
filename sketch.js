@@ -90,7 +90,7 @@ function checkCollisions(pos, spd, rad){
 }
 
 function randomInt(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min));
 }
 
 function touchStarted() {
@@ -101,7 +101,7 @@ function touchStarted() {
 function loadEmojis() {
     var images = []; 
     for(var i=0; i<count; i++){
-      number = Math.floor(randomInt(505,2174));
+      number = randomInt(505,2174);
       img = loadImage("assets/images/48x48/".concat(number,".png"));
       images.push(img);
 
