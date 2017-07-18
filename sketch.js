@@ -15,10 +15,21 @@ var number;
 var img;
 var images = []; 
 
+var cnv;
+
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+}
+
+function windowResized() {
+  centerCanvas();
+}
 
 function setup() {
-  createCanvas(1200,800);
-  background(255);
+  cnv = createCanvas(1920, 1080);
+  centerCanvas();
 
   // number = Math.floor(randomInt(1,2176));
 
