@@ -15,7 +15,7 @@ var number;
 var img;
 
 var scrollingY=0;
-var scrollingX=0;
+var scrollingX=100;
 
 var emojis = [];
 
@@ -63,12 +63,13 @@ function draw() {
 
   if (scrollingY > height){
     scrollingY = 0
+    scrollingX = randomInt(50,500);
   }
 
 
   textSize(64);
   fill(255);
-  text("MusicMind", 100, scrollingY);
+  text("MusicMind", scrollingX, scrollingY);
 
 
 }
