@@ -15,21 +15,13 @@ var number;
 var img;
 var images = []; 
 
-var cnv;
+var scrollingY=0;
+var scrollingX=0;
 
-function centerCanvas() {
-  var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 2;
-  cnv.position(x, y);
-}
-
-function windowResized() {
-  centerCanvas();
-}
 
 function setup() {
-  cnv = createCanvas(1920, 1080);
-  centerCanvas();
+  createCanvas(800, 600);
+
 
   // number = Math.floor(randomInt(1,2176));
 
@@ -49,16 +41,17 @@ function setup() {
     damping = .923;
   }
 
-  
-
 }
+
 
 function draw() {
   background(255);
   // fill(100, 255, 30);
-  
+  noFill();
+  scrollingY += 1;
+
   for(var i=0; i<count; i++){
-  	// kiwi = new image(img, width/2, height/2);
+    // kiwi = new image(img, width/2, height/2);
     // ellipse(pos[i].x, pos[i].y, radii[i]*2, radii[i]*2);
     
     image(img, pos[i].x, pos[i].y, radii[i]*6, radii[i]*6);
@@ -66,11 +59,18 @@ function draw() {
       spd[i].y += gravity[i];
       pos[i].y += spd[i].y;
       checkCollisions(pos[i], spd[i], radii[i]);
-  }
-  fill(255);
-  textSize(64);
 
-  text("Welcome to Music Translational Software", width/2, height/2, width/6, height/3);
+  }
+
+  if (scrollingY > height){
+    scrollingY = 0
+  }
+
+
+  textSize(64);
+  fill(255);
+  text("Greetings Travelers", 100, scrollingY);
+
 
 }
 
@@ -96,11 +96,5 @@ function randomInt(min, max) {
 function touchStarted() {
   setup();
 
-}
-
-function imageSort(){
-  
-    number = Math.floor(randomInt(1,2176));
-    img = loadImage("assets/images/48x48/".concat(number,".png"));
 }
 
